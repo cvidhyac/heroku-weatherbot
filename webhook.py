@@ -1,7 +1,7 @@
 import json
 import os
 import requests
-
+import logging
 from flask import Flask
 from flask import request
 from flask import make_response
@@ -12,7 +12,7 @@ app = Flask(__name__)
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
-    print(json.dumps(req, indent=4))
+    logging.debug(json.dumps(req, indent=4))
     res = get_response(req)
     res = json.dumps(res, indent=4)
     r = make_response(res)
@@ -31,7 +31,7 @@ def get_response(req):
         'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',us&mode=xml&appid'
                                                                       '=e973b4ce27b0763ac378205ebc955c60',
         headers=req_headers)
-    print(str(res.content))
+    logging.debug(str(res.content))
     speech = "The forecast for " + city + " is : "
     return {
         "speech": speech,
@@ -42,5 +42,5 @@ def get_response(req):
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
-    print('Starting app on port %d', port)
+    logging.debug('Starting app on port %d', port)
     app.run(debug=False, port=port, host='0.0.0.0')
