@@ -27,5 +27,19 @@ heroku login -i
 Email: myemail@whatever.com
 Password: changeit
 
+heroku access --app cvidhyac-weatherbot
 
+```
+
+To scale down and save dynos:
+```
+heroku ps:scale web=0 --app cvidhyac-weatherbot
+
+```
+
+Example output:
+
+```
+Scaling dynos... done, now running web at 0:Free
+```
 
