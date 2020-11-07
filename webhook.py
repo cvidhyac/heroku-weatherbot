@@ -21,7 +21,7 @@ def webhook():
 
 
 def get_response(req):
-    parse_request = req.get('result')
+    parse_request = req.get('queryResult')
     req_parameters = parse_request.get('parameters')
     city = req_parameters.get('geo-city')
     date = req_parameters.get('date')
