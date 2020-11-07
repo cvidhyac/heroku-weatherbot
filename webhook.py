@@ -33,7 +33,7 @@ def get_response(req):
                                                                       '=e973b4ce27b0763ac378205ebc955c60',
         headers=req_headers)
     print(str(res.content))
-    speech = "The forecast for " + city + "for " + date + ""
+    speech = "The forecast for " + city + " is : "
     return {
         "speech": speech,
         "displayText": speech,
