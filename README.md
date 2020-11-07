@@ -31,8 +31,13 @@ heroku access --app cvidhyac-weatherbot
 
 ```
 
-To scale down and save dynos:
+To scale up/down and save dynos:
+
 ```
+Scale up, observe app is turned on when accessed from browser:
+heroku ps:scale web=1 --app cvidhyac-weatherbot
+
+scale down, app turned off (not deleted), when accessed from browser:
 heroku ps:scale web=0 --app cvidhyac-weatherbot
 
 ```
