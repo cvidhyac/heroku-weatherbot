@@ -29,7 +29,7 @@ def get_response(req):
     }
     res = requests.get(
         'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',us&mode=xml&appid'
-                                                                      '=e973b4ce27b0763ac378205ebc955c60',
+                                                                      '=replace-token',
         headers=req_headers)
     logging.debug(str(res.content))
     speech = "The forecast for " + city + " is : "
